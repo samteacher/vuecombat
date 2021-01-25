@@ -1,9 +1,6 @@
 # vuecombat
-vue实战
 
-![avatar](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556258160391&di=74b63670c3c1227a87278838dbf96917&imgtype=0&src=http%3A%2F%2Fd2jq2hx2dbkw6t.cloudfront.net%2F161%2FScreenshot_10.png)
-
-## 前端开发技术
+### 前端开发技术
 
 ### VUE.JS
 
