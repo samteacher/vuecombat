@@ -7,14 +7,32 @@
     <script src="..\node_modules\vue\dist\vue.js"></script>
   </head>
   <body>
-    <div id="app">{{content}}</div>
+    <div id="app">
+      {{content}}
+      <ul v-for="(good,index) in goods">
+        <li>{{index+1}}：{{good.name}}----{{good.id}}</li>
+      </ul>
+    </div>
 
     <script>
       var app = new Vue({
         el: "#app",
         data: {
+          isShow: true,
           content: "我的第一个demo",
           title: "再重新定义一次",
+          goods: [
+            { name: "keke", id: 1 },
+            { name: "yuke", id: 2 },
+            { name: "like", id: 3 },
+            { name: "sam", id: 4 },
+            { name: "future", id: 5 },
+          ],
+        },
+        methods: {
+          changeShow() {
+            this.isShow = !this.isShow;
+          },
         },
       });
     </script>
