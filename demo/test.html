@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>demo</title>
     <script src="..\node_modules\vue\dist\vue.js"></script>
-</head>
-<body>
-    <div id="app">
-        {{content}}
-    </div>
-    
+  </head>
+  <body>
+    <div id="app">{{content}}</div>
+
     <script>
-        var app = new Vue({
-            el:"#app",
-            data: {
-                content: "我的第一个demo"
-            }
-            
-        })
+      var app = new Vue({
+        el: "#app",
+        data: {
+          content: "我的第一个demo",
+          title: "再重新定义一次",
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
