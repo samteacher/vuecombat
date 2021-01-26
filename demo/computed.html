@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计算属性 computed</title>
+    <script src="..\node_modules\vue\dist\vue.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <p>{{ msg }}</p>
+      <!-- 直接调用方法 -->
+      <p>{{ reversedMessage }}</p>
+      <!-- 调用方法和调用计算属性的区别是：调用方法时，需要加 () -->
+    </div>
+
+    <script>
+      let vm = new Vue({
+        el: ".container",
+        data: {
+          msg: "Hello",
+        },
+        // 如果要设置计算属性，需要设置 computed 属性
+        computed: {
+          // 反转字符串
+          reversedMessage: function () {
+            this.msg = this.msg.split("").reverse().join("");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

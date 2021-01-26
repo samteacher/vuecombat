@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义指令</title>
+    <script src="..\node_modules\vue\dist\vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <span v-bg_color="data"> welcome bule</span>
+    </div>
+
+    <script>
+      Vue.directive("bg_color", {
+        // 函数中接收两个参数，第一个参数为触发该指令的元素，第二个参数为该指令中传递的参数
+        inserted: function (el, obj) {
+          // 使用元素的 style 为其设置样式
+          // 通过形参的 value 属性来获取形参真正的值
+          console.log(obj);
+          el.style.backgroundColor = obj.value.color;
+        },
+      });
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          data: { color: "red" },
+        },
+      });
+    </script>
+  </body>
+</html>
