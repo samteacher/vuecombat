@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义组件的几种写法</title>
+    <script src="..\node_modules\vue\dist\vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <component-a></component-a>
+      <component-b></component-b>
+      <component-c></component-c>
+      <component-d></component-d>
+    </div>
+
+    <script>
+      // vue component 自定义组件的几种写法  目前有三种
+      Vue.component("component-d", {
+        props: "",
+        template: `<div class="component-d"><h3>D</h3></div>`,
+      });
+      let ComponentA = {
+        template: `<div class="component-a"><strong>A</strong><slot></slot></div>`,
+      };
+      let ComponentB = {
+        template: `<div class="component-b"><strong>B</strong><slot></slot></div>`,
+      };
+
+      new Vue({
+        el: "#app",
+        components: {
+          "component-a": ComponentA,
+          "component-b": ComponentB,
+          "component-c": {
+            template: `<div class="component-c"><strong>C</strong><slot></slot></div>`,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

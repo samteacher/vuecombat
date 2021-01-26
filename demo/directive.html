@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自定义指令</title>
+    <script src="..\node_modules\vue\dist\vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      hello
+      <span v-red> welcome red</span>
+      <span v-green> welcome green</span>
+      <span v-bule> welcome bule</span>
+    </div>
+
+    <script>
+      // vue directive  自定义指令 的几种写法  目前有三种
+      Vue.directive("red", {
+        inserted: function (el) {
+          el.style.background = "red";
+        },
+      });
+
+      let bule = {
+        inserted: function (el) {
+          el.style.background = "blue";
+        },
+      }
+
+      new Vue({
+        el: "#app",
+        directives: {
+          bule: bule,
+          green: {
+            bind: function (el, binding) {
+              el.style.background = "green";
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
+
