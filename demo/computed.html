@@ -7,27 +7,35 @@
     <script src="..\node_modules\vue\dist\vue.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div id="app">
       <p>{{ msg }}</p>
       <!-- 直接调用方法 -->
-      <p>{{ reversedMessage }}</p>
+      <div>{{ resulftMsg }}</div>
       <!-- 调用方法和调用计算属性的区别是：调用方法时，需要加 () -->
+      <p>{{ reversedMessage() }}</p>
     </div>
 
     <script>
-      let vm = new Vue({
-        el: ".container",
+      var vm = new Vue({
+        el: "#app",
         data: {
           msg: "Hello",
         },
         // 如果要设置计算属性，需要设置 computed 属性
         computed: {
           // 反转字符串
-          reversedMessage: function () {
+          resulftMsg: function () {
+            console.log("调用了111");
             this.msg = this.msg.split("").reverse().join("");
-          },
+          }
         },
-      });
+        methods: {
+          reversedMessage: function () {
+            console.log("调用了222");
+            return this.msg.split("").reverse().join("");
+          }
+        }
+      })
     </script>
   </body>
 </html>
